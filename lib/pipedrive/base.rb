@@ -32,6 +32,9 @@ module Pipedrive
     # @param [Hash] attributes
     # @return [Pipedrive::Base]
     def initialize(attrs = {})
+      api_token = attrs.delete(:api_token)
+      self.default_params(:api_token => api_token) if api_token
+
       if attrs['data']
         struct_attrs = attrs['data']
 
